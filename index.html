@@ -1,29 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Virtual Friends</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Style -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LUFFYDOMZZ — Pirate Virtual (Final)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-    <div class="container">
-        <h1>Virtual Friends Lobby</h1>
-
-        <div class="menu">
-            <button onclick="gotoRoom()">Masuk Room</button>
-            <button onclick="openChat()">Chat Global</button>
-            <button onclick="startTicTacToe()">Main Tic Tac Toe</button>
-            <button onclick="reactionGame()">Reaction Game</button>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🎩🏴‍☠️</div>
+        <div>
+          <h1>LUFFYDOMZZ — Pirate Virtual</h1>
+          <div class="tag">Tema: Topi Jerami • Skill Ekstrim</div>
         </div>
-    </div>
+      </div>
+      <div class="meta">Developer: <strong>LUFFYDOMZZ</strong></div>
+    </header>
 
-    <!-- GAME AREA -->
-    <div id="game-area"></div>
+    <main class="main">
+      <section class="menu">
+        <button id="btnChat">Chat Lokal</button>
+        <button id="btnTtt">Tic-Tac-Toe (VS Bot)</button>
+        <button id="btnReaction">Reaction Dodge</button>
+        <div class="skill-group">
+          <button id="btnSkill1" class="skill">Gomu Gomu Pistol</button>
+          <button id="btnSkill2" class="skill">Gear 2</button>
+          <button id="btnSkill3" class="skill gear5">Gear 5 (AWAKEN)</button>
+        </div>
+        <button id="btnResetAll" title="Reset semua progress">Reset</button>
+      </section>
 
-    <script src="script.js"></script>
+      <section id="area" class="area">
+        <div class="welcome">
+          <h2>Selamat datang, Nakama!</h2>
+          <p>Pilih mode permainan di atas. Semua offline — buka di browser.</p>
+          <p class="small">Developer: <strong>LUFFYDOMZZ</strong> • Topi Jerami Dev</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>© <strong>LUFFYDOMZZ</strong> • Pirate Virtual — Demo Lokal</div>
+      <div class="small">Skill ekstrim aktif: Gear 5 akan buat layar "meledak" (efek visual & audio)</div>
+    </footer>
+  </div>
+
+  <!-- Overlay untuk skill / efek -->
+  <div id="effectOverlay" class="effect-overlay hidden" aria-hidden="true">
+    <div class="clouds"></div>
+    <div class="smash-text" id="smashText">BAJAK LAUT TOPI JERAMI — LUFFYDOMZZ</div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
