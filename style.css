@@ -1,59 +1,96 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Poppins, sans-serif;
-    background: linear-gradient(135deg, #1a1a1a, #333);
-    color: white;
+/* STYLE: Tema Luffy / Topi Jerami + efek Gear5 */
+:root{
+  --bg:#061028;
+  --card:#0f1b2b;
+  --accent:#ff3b3b;   /* Luffy red */
+  --accent2:#ffd24d;  /* Straw hat yellow */
+  --text:#f2f8ff;
+  --muted:rgba(242,248,255,0.65);
+  --radius:12px;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
-.container {
-    text-align: center;
-    margin-top: 50px;
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(180deg,#041022,#07162a);color:var(--text);padding:18px}
+.container{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+
+/* top */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),#ffd88a);display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(255,200,50,0.06)}
+.topbar h1{margin:0;font-size:18px}
+.tag{font-size:12px;color:var(--muted)}
+.meta{font-size:13px;color:var(--muted)}
+
+/* menu */
+.menu{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.menu button{
+  padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700;
+  background:linear-gradient(90deg,var(--accent),#ff7b7b);color:#081026;box-shadow:0 8px 18px rgba(255,59,59,0.06);
+}
+.menu .skill{background:linear-gradient(90deg,var(--accent2),#ffd88a);color:#081026}
+.menu button#btnResetAll{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:600}
+
+/* area */
+.area{min-height:480px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;flex-direction:column;gap:12px}
+.welcome{text-align:center}
+.welcome h2{margin:6px 0 0 0;color:var(--accent)}
+.welcome p{color:var(--muted)}
+.small{color:var(--muted);font-size:13px}
+
+/* chat */
+.chat-wrap{display:flex;gap:12px;flex-direction:column;height:100%}
+.messages{flex:1;background:rgba(0,0,0,0.04);padding:10px;border-radius:10px;overflow:auto}
+.msg{margin-bottom:8px}
+.msg .who{font-weight:700;margin-right:8px}
+.chat-input{display:flex;gap:8px}
+.chat-input input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+.chat-input button{padding:10px;border-radius:10px;border:none;background:var(--accent2);color:#081026;font-weight:800;cursor:pointer}
+
+/* tic tac toe */
+.ttt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px;max-width:480px;margin:8px auto}
+.ttt-cell{
+  background:linear-gradient(180deg,#081323,#0f1b2b);height:110px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900;color:var(--accent2);cursor:pointer;border:2px solid rgba(255,255,255,0.03)
+}
+.ttt-controls{display:flex;justify-content:center;gap:8px;margin-top:8px}
+
+/* reaction dodge */
+.dodge-area{position:relative;width:100%;max-width:480px;height:420px;margin:0 auto;background:linear-gradient(180deg,#07131f,#071022);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.player{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:72px;height:72px;border-radius:12px;background:linear-gradient(90deg,var(--accent2),#ffd88a);display:flex;align-items:center;justify-content:center;font-weight:900;color:#081026}
+.obstacle{position:absolute;width:46px;height:46px;border-radius:8px;background:linear-gradient(180deg,#8b5a2b,#5a3a1a);}
+
+/* EFFECT overlay for Gear5 */
+.effect-overlay{position:fixed;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:center;z-index:9999}
+.effect-overlay.hidden{display:none}
+.effect-overlay .clouds{position:absolute;inset:0;background:
+  radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0 10%, transparent 20%),
+  radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0 10%, transparent 25%);
+  filter:blur(12px);opacity:0.95}
+.smash-text{position:relative;padding:22px 30px;border-radius:14px;background:linear-gradient(90deg,#fff6b2,#ffd24d);color:#081026;font-weight:900;font-size:22px;transform:scale(0.8);opacity:0;box-shadow:0 18px 60px rgba(255,200,30,0.18)}
+
+/* animation classes */
+.gear5-flash { animation: gearFlash .9s ease-in-out both; }
+@keyframes gearFlash {
+  0% { transform: scale(0.8); opacity: 0; filter: blur(8px); }
+  40% { transform: scale(1.06); opacity: 1; filter: blur(0px); }
+  100% { transform: scale(1); opacity: 1; filter: blur(0px); }
 }
 
-.menu button {
-    width: 80%;
-    margin: 10px 0;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    background: #ff4477;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
+/* screen shake */
+@keyframes shake {
+  0% { transform: translateX(0) }
+  20% { transform: translateX(-12px) }
+  40% { transform: translateX(10px) }
+  60% { transform: translateX(-8px) }
+  80% { transform: translateX(6px) }
+  100% { transform: translateX(0) }
 }
+.shake { animation: shake 0.7s cubic-bezier(.36,.07,.19,.97) both; }
 
-.menu button:hover {
-    background: #ff2255;
-    transform: scale(1.05);
-}
+/* small helpers */
+.hidden { display:none !important; }
 
-#game-area {
-    margin: 30px auto;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-}
-
-/* Tic Tac Toe */
-.ttt-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.ttt-cell {
-    background: #222;
-    padding: 30px;
-    font-size: 32px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* Reaction Game */
-.reaction-box {
-    padding: 30px;
-    background: #444;
-    border-radius: 10px;
+@media (max-width:700px){
+  .ttt-cell{height:80px;font-size:30px}
+  .dodge-area{height:340px}
 }
